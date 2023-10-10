@@ -1,0 +1,11 @@
+.image {
+  animation: updown 3s infinite ease alternate;
+}
+@keyframes updown {
+  from {
+    transform: translateY(-15px);
+  }
+  to {
+    transform: translateY(0px) scale(1.05);
+  }  
+}

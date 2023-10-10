@@ -1,5 +1,8 @@
+import Button from '@/components/button/Button'
 import Image from 'next/image'
 import Hero from 'public/hero.svg'
+
+import './page.css';
 
 export default function Home() {
   return (
@@ -9,10 +12,10 @@ export default function Home() {
         <p className='flex w-3/4 text-3xl text-neutral-500 font-semibold'>
           Providing you and your relatives the tools for tracing your family's history.
         </p>
-        <button className='flex max-w-fit bg-teal-400 border-none rounded-md py-2 px-4'>See Our Work</button>
+        <Button url='/portfolio' text='See Our Work' />
       </div>
       <div className='flex-1 w-full h-[500px] object-center'>
-        <Image src={Hero} alt='home page hero' className='w-[35rem] h-auto ml-[8rem]' />
+        <Image src={Hero} alt='home page hero' className='image w-[35rem] h-auto ml-[8rem]' />
       </div>
     </main>
   )

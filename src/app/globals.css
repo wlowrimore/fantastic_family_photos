@@ -9,11 +9,24 @@
 }
 
 body {
-  background: #f0fdfa;
-  color: #404040
+  
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.theme {
+  transition: 1s all ease;
+}
+
+.light {
+  background: #f0fdfa;
+  color: #404040
+}
+
+.dark {
+  background: #404040;
+  color: #f0fdfa;
 }

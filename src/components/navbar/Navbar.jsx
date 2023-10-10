@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React from 'react'
-
+import DarkModeToggle from '../darkModeToggle/DarkModeToggle';
 const links = [
   {
     id: 1,
@@ -41,6 +41,7 @@ const Navbar = () => {
     <div className='flex justify-between items-center py-6'>
       <Link href='/' className='text-2xl font-semibold'>LOGO HERE</Link>
       <div className='flex items-center gap-6'>
+        <DarkModeToggle />
         {links.map(link => (
           <Link key={link.id} href={link.url}>{link.title}</Link>
         ))}
