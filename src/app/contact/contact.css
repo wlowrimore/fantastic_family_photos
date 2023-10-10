@@ -3,9 +3,9 @@
 }
 @keyframes updown {
   from {
-    transform: translateY(-10px);
+    transform: translateY(-15px);
   }
   to {
-    transform: translateY(10px);
+    transform: translateY(0px) scale(1.03);
   }
 }
