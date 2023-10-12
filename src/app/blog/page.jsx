@@ -1,56 +1,46 @@
 import React from 'react'
-// import './blog.css';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Blog = () => {
+async function getData() {
+  const res = await fetch('http://localhost:3000/api/posts', { cache: 'no-store' });
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+
+  return res.json();
+}
+
+export const metadata = {
+  title: 'REWTZ Blog',
+  description: 'View blog entries created by your family members'
+}
+
+const Blog = async () => {
+  const data = await getData()
+
   return (
     <div className='flex flex-col justify-center gap-10'>
-      <Link href='/blog/testId' className='flex gap-10 items-center'>
-        <div className=''>
-          <Image
-            src='https://images.pexels.com/photos/819370/pexels-photo-819370.jpeg?auto=compress&cs=tinysrgb&w=1600'
-            alt=''
-            width={400}
-            height={250}
-            className=''
-          />
+      {data.map((item) => (
+        <div key={item.id}>
+          <Link href={`/blog/${item._id}`} className='flex w-full items-center gap-10'>
+            <div className=''>
+              <Image
+                src={item.img}
+                alt=''
+                width={400}
+                height={250}
+                className=''
+              />
+            </div>
+            <div className='content'>
+              <h1 className='title'>{item.title}</h1>
+              <p className=''>{item.desc}</p>
+            </div>
+          </Link>
         </div>
-        <div className='content'>
-          <h1 className='title'>Test</h1>
-          <p className='desc'>Description</p>
-        </div>
-      </Link>
-      <Link href='/blog/testId' className='flex gap-10 items-center'>
-        <div className=''>
-          <Image
-            src='https://images.pexels.com/photos/819370/pexels-photo-819370.jpeg?auto=compress&cs=tinysrgb&w=1600'
-            alt=''
-            width={400}
-            height={250}
-            className=''
-          />
-        </div>
-        <div className='content'>
-          <h1 className='title'>Test</h1>
-          <p className='desc'>Description</p>
-        </div>
-      </Link>
-      <Link href='/blog/testId' className='flex gap-10 items-center'>
-        <div className=''>
-          <Image
-            src='https://images.pexels.com/photos/819370/pexels-photo-819370.jpeg?auto=compress&cs=tinysrgb&w=1600'
-            alt=''
-            width={400}
-            height={250}
-            className=''
-          />
-        </div>
-        <div className='content'>
-          <h1 className='title'>Test</h1>
-          <p className='desc'>Description</p>
-        </div>
-      </Link>
+      ))}
     </div>
   )
 }

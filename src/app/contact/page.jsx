@@ -4,6 +4,11 @@ import React from 'react'
 
 import './contact.css';
 
+export const metadata = {
+  title: 'REWTZ Contact Information',
+  description: 'Contact information for the developers and owners of REWTZ.',
+}
+
 const Contact = () => {
   return (
     <div className='container w-full flex flex-col items-center'>

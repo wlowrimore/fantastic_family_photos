@@ -1,43 +1,17 @@
-import React from "react";
-// import styles from "./page.module.css";
-import Link from "next/link";
-import Image from "next/image";
+import Post from "@/models/Post";
+import connect from "@/utils/db";
+import { NextResponse } from "next/server";
 
-async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    cache: "no-store",
-  });
+export const GET = async (request, { params }) => {
+  const { id } = params;
+  // fetch
+  try {
+    await connect()
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    const post = await Post.findById(id);
+
+    return new NextResponse(JSON.stringify(post), { status: 200 })
+  } catch (err) {
+    return new NextResponse("Server Error", { status: 500 })
   }
-
-  return res.json();
-}
-
-const Blog = async () => {
-  const data = await getData();
-  return (
-    <div className={styles.mainContainer}>
-      {data.map((item) => (
-        <Link href={`/blog/${item._id}`} className={styles.container} key={item.id}>
-          <div className={styles.imageContainer}>
-            <Image
-              src={item.img}
-              alt=""
-              width={400}
-              height={250}
-              className={styles.image}
-            />
-          </div>
-          <div className={styles.content}>
-            <h1 className={styles.title}>{item.title}</h1>
-            <p className={styles.desc}>{item.desc}</p>
-          </div>
-        </Link>
-      ))}
-    </div>
-  );
 };
-
-export default Blog;
