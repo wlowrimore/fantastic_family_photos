@@ -72,7 +72,7 @@ const Navbar = () => {
           )}
         </div>
         <div className='fixed z-10 bottom-0'>
-          <ul className='grid grid-cols-3 gap-4 items-center justify-center bg-neutral-700 border-t border-neutral-400 py-4 bg-neutral-700 text-teal-100 w-screen px-4'>
+          <ul className='grid grid-cols-3 gap-4 items-center justify-center bg-neutral-700 border-t border-neutral-400 py-4 text-teal-100 w-screen px-4'>
             <Link href='/'><li>Home</li></Link>
             <Link href='/about'><li>About</li></Link>
             <Link href='/blog'><li>Blog</li></Link>
