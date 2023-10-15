@@ -1,7 +1,7 @@
 'use client'
 
 import { useSession } from 'next-auth/react';
-import { notFound, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react'
 import Image from 'next/image';
 import useSWR from 'swr';
@@ -65,7 +65,7 @@ const Dashboard = () => {
       {/* posts */}
       <div className='flex-2'>
         {isLoading ? "loading" : data?.map((post) => (
-          <div className='lg:grid grid-cols-3 gap-10 mb-10' key={post.id}>
+          <div className='lg:grid grid-cols-3 gap-10 mb-10' key={post._id}>
             <div className='mb-10 w-80 h-55 px-4'>
               <Image src={post.img} width={400} height={300} alt="post" className='object-cover' />
             </div>
