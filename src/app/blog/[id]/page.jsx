@@ -32,7 +32,7 @@ const BlogPost = async ({ params }) => {
           <div className='flex space-x-2 items-center my-4 lg:my-0'>
             <Image
               src={data.img}
-              alt=''
+              alt='nothing'
               width={50}
               height={50}
               className='rounded-[50%]'

@@ -10,7 +10,7 @@ export default function Home() {
       <div className='flex-1 flex flex-col gap-10 my-32 lg:my-48'>
         <h1 className='text-4xl lg:text-7xl font-bold bg-gradient-to-b from-teal-900 to-neutral-300 bg-clip-text text-transparent'>Personal approach to exploring your family tree.</h1>
         <p className='flex w-3/4 text-3xl text-neutral-500 font-semibold'>
-          Providing you and your relatives the tools for tracing your family's history.
+          Providing you and your relatives the tools for tracing your family&apos;s history.
         </p>
         <Button url='/portfolio' text='See Our Work' />
       </div>
