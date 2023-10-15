@@ -24,12 +24,12 @@ const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
 
   return (
-    <div className='flex flex-col'>
-      <div className='grid grid-cols-2 gap-2'>
-        <div className='flex flex-col gap-y-6'>
-          <h1 className='w-4/5 text-5xl font-bold'>{data.title}</h1>
+    <div className='flex flex-col my-28 lg:my-24 px-4'>
+      <div className='grid grid-cols-1 lg:grid-cols-2 gap-2'>
+        <div className='flex flex-col lg:gap-y-6'>
+          <h1 className='lg:w-4/5 lg:text-5xl font-bold'>{data.title}</h1>
           <p>{data.desc}</p>
-          <div className='flex space-x-2 items-center'>
+          <div className='flex space-x-2 items-center my-4 lg:my-0'>
             <Image
               src={data.img}
               alt=''
@@ -37,14 +37,14 @@ const BlogPost = async ({ params }) => {
               height={50}
               className='rounded-[50%]'
             />
-            <span className='text-sm tracking-wider mt-1'>{data.username}</span>
+            <span className='text-xs lg:text-sm tracking-wider mt-1'>author: {data.username}</span>
           </div>
         </div>
         <div className='h-[19rem] relative'>
           <Image
             src={data.img}
             fill={true}
-            className='object-cover pl-12'
+            className='object-cover rounded-2xl shadow-lg shadow-neutral-800'
           />
         </div>
       </div>

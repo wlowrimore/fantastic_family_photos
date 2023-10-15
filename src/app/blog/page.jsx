@@ -1,5 +1,4 @@
 import React from 'react'
-import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -10,6 +9,7 @@ async function getData() {
   }
 
   return res.json();
+  mutate();
 }
 
 export const metadata = {
@@ -21,22 +21,23 @@ const Blog = async () => {
   const data = await getData()
 
   return (
-    <div className='flex flex-col justify-center gap-10'>
+    <div className='flex flex-col justify-center gap-10 my-24'>
       {data.map((item) => (
         <div key={item.id}>
-          <Link href={`/blog/${item._id}`} className='flex w-full items-center gap-10'>
-            <div className=''>
+          <Link href={`/blog/${item._id}`} className='flex flex-col lg:flex-row w-full lg:items-center lg:gap-10 px-4'>
+            <div>
               <Image
                 src={item.img}
-                alt=''
+                alt='uploaded pic'
                 width={400}
                 height={250}
-                className=''
+                className='transform hover:scale-105 hover:rounded-3xl duration-300'
               />
             </div>
-            <div className='content'>
-              <h1 className='title'>{item.title}</h1>
-              <p className=''>{item.desc}</p>
+            <div className='text-justify'>
+              <h1 className='text-xl lg:text-3xl font-bold tracking-wide'>{item.title}</h1>
+              <p className='text-sm lg:text-lg font-semibold'>{item.desc}</p>
+              <p className='text-xs lg:text-sm tracking-wide text-red-500'>Posted by: {item.username}</p>
             </div>
           </Link>
         </div>

@@ -1,0 +1,10 @@
+.header-bg {
+  position: fixed;
+  top: 0;
+  background-color: #404040;
+  color: #ccfbf1;
+  border-bottom: 1px solid #ccfbf1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+  transition: background-color 200ms ease-in-out;
+  padding: 1rem 0; 
+}

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='h-[1.5rem] flex justify-between items-center'>
+    <div className='hidden lg:flex mt-auto h-[1.5rem] justify-between items-center'>
       <div>
         &copy; 2023 fakeNameDev. All Rights Reserved.
       </div>

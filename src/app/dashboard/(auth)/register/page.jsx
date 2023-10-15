@@ -35,7 +35,7 @@ const Register = () => {
   };
 
   return (
-    <div className='flex flex-col justify-center item-center mx-auto'>
+    <div className='min-h-screen flex flex-col pt-32 lg:pt-0 lg:justify-center item-center mx-auto p-4'>
       <form onSubmit={handleSubmit} className='flex flex-col gap-y-4'>
         <input type='text' placeholder='username' className='bg-transparent border border-neutral-300 rounded h-[3rem] px-2 outline-none' required />
 
